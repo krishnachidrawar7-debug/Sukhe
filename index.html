@@ -7,10 +7,10 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Pacifico&display=swap');
-body{margin:0;height:100vh;font-family:Poppins;background:linear-gradient(135deg,#6a00ff,#a855f7,#d8b4fe);color:white;text-align:center;overflow:hidden}
-.screen{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+body{margin:0;height:100vh;font-family:Poppins;background:linear-gradient(135deg,#6a00ff,#a855f7,#d8b4fe);color:white;text-align:center;overflow:auto}
+.screen{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:30px 20px;overflow-y:auto}
 .hidden{display:none}
-.card{background:rgba(255,255,255,.12);backdrop-filter:blur(14px);padding:35px;border-radius:25px;max-width:520px;box-shadow:0 15px 40px rgba(0,0,0,.25)}
+.card{background:rgba(255,255,255,.12);backdrop-filter:blur(14px);padding:35px;border-radius:25px;max-width:520px;width:100%;box-shadow:0 15px 40px rgba(0,0,0,.25);margin:20px auto 80px}
 h1{font-family:Pacifico;font-weight:normal}
 button{border:none;padding:14px 28px;border-radius:50px;font-size:1.1rem;cursor:pointer;margin:10px}
 .primary{background:#ffb6ff;color:#4c1d95}
@@ -83,7 +83,7 @@ button{border:none;padding:14px 28px;border-radius:50px;font-size:1.1rem;cursor:
 <div class="card">
 <h1>I knew it 😌💜</h1>
 <p>Tu meri filmy heroine hai forever</p>
-<p class="loading">Loading our memories... 💜</p><div class="gallery" id="gallery"></div><p style="margin-top:18px;font-size:1.1rem">Happy Valentine’s Day Sukhada 💜<br>I don’t need perfect moments, I just need them with you.<br><br><b>Happy Valentine’s Day babiee!! 💜</b><br>Waise toh main ye Valentine-falentine zyada maanta nahi… because honestly I love you every single day. But this is our first one together… so why not make it special 😌<br><br>You are genuinely the best thing that has happened in my life " god tussi great ho 🙏" Somehow in this huge world I got you… and now you’re mine.. then, now and forever.<br><br>I love you more than anything. Bas ek hi problem hai… this stupid distance. I want mornings where I wake up next to you, not just to a notification. I want to start my day seeing your face, not your profile picture.<br><br>I want to kiss you right after waking up, hug you tightly and not let go for no reason. You’re the prettiest girl in the world , not just looks, but the way you talk, your nakhre, your laugh, everything.<br><br>I don’t just want special days with you… I want normal boring days with you. Random fights, random laughs, random silence !! but together 💜</p>
+<p class="loading">Loading our memories... 💜</p><div class="gallery" id="gallery"></div><p style="margin-top:18px;font-size:1.1rem">Happy Valentine’s Day Sukhada 💜<br>I don’t need perfect moments, I just need them with you.<br><br><b>Happy Valentine’s Day babiee!! 💜</b><br>Waise toh main ye Valentine-falentine zyada maanta nahi… because honestly I love you every single day. But this is our first one together… so why not make it special 😌<br><br>You are genuinely the best thing that has happened in my life  "god tussi great ho 🙏" Somehow in this huge world I got you… and now you’re mine , then, now and forever.<br><br>I love you more than anything. Bas ek hi problem hai… this stupid distance. I want mornings where I wake up next to you, not just to a notification. I want to start my day seeing your face, not your profile picture.<br><br>I want to kiss you right after waking up, hug you tightly and not let go for no reason. You’re the prettiest girl in the world !! not just looks, but the way you talk, your nakhre, your laugh, everything.<br><br>I don’t just want special days with you… I want normal boring days with you. Random fights(not fights fights lol), random laughs, random silence, but together!! 💜</p>
 </div>
 </div>
 
@@ -118,8 +118,40 @@ no.onmouseover=()=>{no.style.position='relative';no.style.left=Math.random()*200
 // yes result
 const images=["images/IMG_20260106_082534459.jpg","images/IMG_20260105_162731936.jpg","images/IMG_20260104_171222075_HDR.jpg","images/IMG_20260108_181641544_HDR.jpg","images/IMG_1361.jpg","images/IMG_1358.jpg"];
 document.getElementById('yes').onclick=()=>{next('result');for(let i=0;i<30;i++){const h=document.createElement('div');h.className='heart';h.innerText='💜';h.style.left=Math.random()*window.innerWidth+'px';h.style.top=window.innerHeight+'px';document.body.appendChild(h);setTimeout(()=>h.remove(),2000)}const g=document.getElementById('gallery');images.forEach(src=>{const img=document.createElement('img');img.src=src;img.loading='lazy';img.onerror=()=>{img.style.display='none'};g.appendChild(img)});document.querySelector('.loading').style.display='none'}
+  /* Emoji rain on tap */
+const emojis = ["💜","🧸","✨","💖","💕","🥺","😍","🧿","🪬"];
+
+function spawnEmoji(x,y){
+    const e=document.createElement("div");
+    e.innerText=emojis[Math.floor(Math.random()*emojis.length)];
+    e.style.position="fixed";
+    e.style.left=x+"px";
+    e.style.top=y+"px";
+    e.style.fontSize="28px";
+    e.style.pointerEvents="none";
+    e.style.zIndex="9999";
+    e.style.transition="all 1.5s ease-out";
+    document.body.appendChild(e);
+
+    setTimeout(()=>{
+        e.style.transform=`translate(${(Math.random()*120-60)}px,-150px) scale(1.8)`;
+        e.style.opacity="0";
+    },10);
+
+    setTimeout(()=>e.remove(),1500);
+}
+
+document.addEventListener("click",(ev)=>{
+    spawnEmoji(ev.clientX,ev.clientY);
+});
+document.addEventListener("touchstart",(ev)=>{
+    const t=ev.touches[0];
+    spawnEmoji(t.clientX,t.clientY);
+});
+
 </script>
 </body>
 </html>
+
 
 
