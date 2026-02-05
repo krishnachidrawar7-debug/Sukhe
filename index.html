@@ -116,31 +116,9 @@ const no=document.getElementById('no');
 no.onmouseover=()=>{no.style.position='relative';no.style.left=Math.random()*200-100+'px';no.style.top=Math.random()*200-100+'px'}
 
 // yes result
-const images=["https://drive.google.com/thumbnail?id=1ya-S4PwtQnuT6IDmg5LgwT4OEASFBrXC&sz=w1000","https://drive.google.com/thumbnail?id=1ZXov31StjZ7RctQnkjal4-vhnRivhF_J&sz=w1000","https://drive.google.com/thumbnail?id=1973-s3-u4utGXSKzUM26YrylAU_jg1ci&sz=w1000","https://drive.google.com/thumbnail?id=18Isfy0xRksF-Gv8BRWDk3aG5U_FW_n8w&sz=w1000","https://drive.google.com/thumbnail?id=1TrwSVpdQP4uKTFkpIwALquHPi5aChEA-&sz=w1000","https://drive.google.com/thumbnail?id=19V7Q0SYyqxG7S6-5nXxHqsRpR8nupjb8&sz=w1000","https://drive.google.com/thumbnail?id=1krYgbk3eoM2n3QQnodZM3SHKyK7-gRKn&sz=w1000"];
+const images=["images/IMG_20260106_082534459.jpg","images/IMG_20260105_162731936.jpg","images/IMG_20260104_171222075_HDR.jpg","images/IMG_20260108_181641544_HDR.jpg","images/IMG_1361.jpg","images/IMG_1358.jpg"];
 document.getElementById('yes').onclick=()=>{next('result');for(let i=0;i<30;i++){const h=document.createElement('div');h.className='heart';h.innerText='💜';h.style.left=Math.random()*window.innerWidth+'px';h.style.top=window.innerHeight+'px';document.body.appendChild(h);setTimeout(()=>h.remove(),2000)}const g=document.getElementById('gallery');images.forEach(src=>{const img=document.createElement('img');img.src=src;img.loading='lazy';img.onerror=()=>{img.style.display='none'};g.appendChild(img)});document.querySelector('.loading').style.display='none'}
-// secret hold to unlock
-const resultScreen=document.getElementById('result');
-let holdTimer=null;
-function startHold(){holdTimer=setTimeout(()=>{next('secret')},5000)}
-function cancelHold(){clearTimeout(holdTimer)}
-resultScreen.addEventListener('mousedown',startHold);
-resultScreen.addEventListener('touchstart',startHold);
-resultScreen.addEventListener('mouseup',cancelHold);
-resultScreen.addEventListener('mouseleave',cancelHold);
-resultScreen.addEventListener('touchend',cancelHold);
 </script>
-
-<div class="screen hidden" id="secret">
-<div class="card">
-<h1>One more thing 💜</h1>
-<p>Happy Valentine’s Day babiee!! 💜</p>
-<p>Waise toh main ye Valentine-falentine zyada maanta nahi… because honestly I love you every single day. But this is our first one together… so why not make it special 😌</p>
-<p>You are genuinely the best thing that has happened in my life — like seriously, god tussi great ho 🙏 Somehow in this huge world I got <b>you</b>… and now you’re mine — then, now and forever.</p>
-<p>I love you more than anything. Bas ek hi problem hai… this stupid distance. I want mornings where I wake up next to you, not just to a notification. I want to start my day seeing your face, not your profile picture.</p>
-<p>I want to kiss you right after waking up, hug you tightly and not let go for no reason. You’re the prettiest girl in the world — not just looks, but the way you talk, your nakhre, your laugh, everything.</p>
-<p>I don’t just want special days with you… I want normal boring days with you. Random fights, random laughs, random silence — but together.</p>
-<p style="margin-top:10px;font-size:1.2rem">So this isn’t a proposal…<br>It’s a lifetime subscription 😌</p>
-</div>
-</div>
 </body>
 </html>
+
